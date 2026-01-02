@@ -1,19 +1,21 @@
-# CONNECT Write From Databricks Notebook
+# CONNECT Get Stream Updates From Databricks Notebook
 **Version:** 1.0.0
 
-The sample code in this folder demonstrates how to write data back to CONNECT data services from Databricks. In order to run this sample, you need to have a Databricks environment.
+The sample code in this folder demonstrates how to get stream updates with CONNECT data services change broker and write those changes to a delta table in Databricks. In order to run this sample, you need to have a Databricks environment.
 
 Developed against Python 3.10.12
 
 ## About the Sample
 
-This sample is intended to show you how you can write time series to CONNECT data services from a Databricks notebook. This may be useful after performing analytics or modelling in Databricks to bring those insights back to the CONNECT platform (and then perhaps back to an on-prem system.) There are two sample notebooks in this repository. The first, **Write Single Stream to CONNECT using API Notebook.ipynb**, uses the CONNECT data services sequential data store (sds) REST API to write values to a stream. It also makes use of the [Python sample library](https://github.com/AVEVA/sample-adh-sample_libraries-python) to keep the code simple. This is method is straightforward and is more suited towards sending minimal data to one or a few streams. The second notebook, **Write Multiple Streams to CONNECT using OMF Notebook.ipynb**, is more suited to sending large amount of data to one or many streams. The sample demonstrates using the CONNECT data services OMF endpoint to write data to a few streams.
+This sample demonstrates how to use the change broker in CONNECT data services to get stream updates. This can be useful if you need very quick updates on how a stream's data has changed. This sample contains two notebooks. The first, [Get Updates from CONNECT Notebook.ipynb](https://github.com/AVEVA/sample-connect-get_stream_updates_databricks_notebook/blob/main/Get%20Updates%20from%20CONNECT%20Notebook.ipynb), is meant to be run manually and walks you through the steps to get the updates. The second, [Get Updates from CONNECT Notebook - For Jobs.ipynb](https://github.com/AVEVA/sample-connect-get_stream_updates_databricks_notebook/blob/main/Get%20Updates%20from%20CONNECT%20Notebook%20-%20For%20Jobs.ipynb) is written to be run via a databricks job. It cannot be run manually since it uses job parameters for certain connection information and settings. Other than those differences, they use the same code and logic to accomplish getting stream updates. Both samples assume that the chosen stream has a Value and Timestamp pair and that the values are numeric type. If your stream contains values of a type that cannot be converted to double, you will need to modify the code accordingly.
 
 ## Getting Started
 
 - Clone the GitHub repository or download the .ipnyb files
 - Import the notebook(s) into your Databricks environment. Follow the instructions at [Import and export Databricks notebooks](https://docs.databricks.com/aws/en/notebooks/notebook-export-import)
-- Follow the instructions in the notebook an run each code block in order.
+- For **Get Updates from CONNECT Notebook.ipynb**, follow the instructions in the notebook an run each code block in order.
+- For **Get Updates from CONNECT Notebook - For Jobs.ipynb**, create a scheduled Notebook Job in Databricks by following the instructions at [Create and manage scheduled notebook jobs](https://docs.databricks.com/aws/en/notebooks/schedule-notebook-jobs) You will need to set the following as job parameters:
+--
 
 ### Creating the secret scope
 
