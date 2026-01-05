@@ -15,8 +15,15 @@ This sample demonstrates how to use the change broker in CONNECT data services t
 - Import the notebook(s) into your Databricks environment. Follow the instructions at [Import and export Databricks notebooks](https://docs.databricks.com/aws/en/notebooks/notebook-export-import)
 - For **Get Updates from CONNECT Notebook.ipynb**, follow the instructions in the notebook an run each code block in order.
 - For **Get Updates from CONNECT Notebook - For Jobs.ipynb**, create a scheduled Notebook Job in Databricks by following the instructions at [Create and manage scheduled notebook jobs](https://docs.databricks.com/aws/en/notebooks/schedule-notebook-jobs) You will need to set the following as job parameters:
---
-
+  - apiVersion - the API version for the signups and updates REST endpoints of CONNECT. (e.g. v1)
+  - resource - the base CONNECT url for the region of your namespace. (e.g. https://uswe.datahub.connect.aveva.com)
+  - tenantId - the tenant Id from CONNECT.
+  - namespaceId - the namespace Id from CONNECT.
+  - streamIds - the list of stream Ids to get updates for from CONNECT. This should be a comma separated list. (e.g. stream1, stream2)
+  - catalog_name - the catalog name of the delta table you'd like to create and write updates to.
+  - schema_name - the schema name of the delta table you'd like to create and write updates to.
+  - table_name - the catalog name of the delta table you'd like to create and write updates to.
+    
 ### Creating the secret scope
 
 This sample makes use of secret scopes in Databricks to securely store the credentials to CONNECT data services. To set up the secret scope, first create a client credentials client in CONNECT data services. For this sample, the client credentials client needs to be given a role that has read and write access to a Cds namespace. For instructions, see: [Add a client-credentials client](https://docs.aveva.com/bundle/connect-data-services/page/1263324.html) 
