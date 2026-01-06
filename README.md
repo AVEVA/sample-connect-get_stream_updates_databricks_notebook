@@ -1,13 +1,19 @@
 # CONNECT Get Stream Updates From Databricks Notebook
 **Version:** 1.0.0
 
-The sample code in this folder demonstrates how to get stream updates with CONNECT data services change broker and write those changes to a delta table in Databricks. In order to run this sample, you need to have a Databricks environment.
+The sample code in this folder demonstrates how to get stream updates with CONNECT data services [change broker](https://docs.aveva.com/bundle/connect-data-services/page/1288745.html) and write those changes to a delta table in Databricks. In order to run this sample, you need to have a Databricks environment.
 
 Developed against Python 3.10.12
 
 ## About the Sample
 
-This sample demonstrates how to use the change broker in CONNECT data services to get stream updates. This can be useful if you need very quick updates on how a stream's data has changed. This sample contains two notebooks. The first, [Get Updates from CONNECT Notebook.ipynb](https://github.com/AVEVA/sample-connect-get_stream_updates_databricks_notebook/blob/main/Get%20Updates%20from%20CONNECT%20Notebook.ipynb), is meant to be run manually and walks you through the steps to get the updates. The second, [Get Updates from CONNECT Notebook - For Jobs.ipynb](https://github.com/AVEVA/sample-connect-get_stream_updates_databricks_notebook/blob/main/Get%20Updates%20from%20CONNECT%20Notebook%20-%20For%20Jobs.ipynb) is written to be run via a databricks job. It cannot be run manually since it uses job parameters for certain connection information and settings. Other than those differences, they use the same code and logic to accomplish getting stream updates. Both samples assume that the chosen stream has a Value and Timestamp pair and that the values are numeric type. If your stream contains values of a type that cannot be converted to double, you will need to modify the code accordingly.
+This sample demonstrates how to use the change broker in CONNECT data services to get stream updates. In general, when getting data into Databricks from CONNECT data services, you should use the [Virtual Tables feature](https://docs.aveva.com/bundle/connect-data-services/page/1469347.html). This is a no-code solution to getting stream and asset data into Databricks. However, using the change brocker in addition to virtual tables can be useful if you need very quick (less than 15 minute) updates on how a stream's data has changed. 
+
+This sample contains two notebooks. The first, [Get Updates from CONNECT Notebook.ipynb](https://github.com/AVEVA/sample-connect-get_stream_updates_databricks_notebook/blob/main/Get%20Updates%20from%20CONNECT%20Notebook.ipynb), is meant to be run manually and walks you through the steps to get the updates. Use this notebook as a learning guide to understand the flow of getting updates.
+
+The second, [Get Updates from CONNECT Notebook - For Jobs.ipynb](https://github.com/AVEVA/sample-connect-get_stream_updates_databricks_notebook/blob/main/Get%20Updates%20from%20CONNECT%20Notebook%20-%20For%20Jobs.ipynb) is written to be run via a databricks job. It cannot be run manually since it uses job parameters for certain connection information and settings. This sample doesn't walk through it's logic but is meant to show how you might implement the code in a job. Other than those differences, they use the same code and logic to accomplish getting stream updates. 
+
+Both samples assume that the chosen stream has a **Value** and **Timestamp** pair and that the values are numeric type. If your stream contains values of a type that cannot be converted to **double**, you will need to modify the code accordingly.
 
 ## Getting Started
 
@@ -38,7 +44,7 @@ To run the Notebook(s), you first need to attach it to a compute resource (clust
 
 ### Test the Notebook
 
-The last cell in the notebooks are for running tests so that you can test to make sure the whole notebook is working as expected. As it tests the methods defined earlier in the notebook, you need to run the previous cells of the notebook before trying to run the tests. If the tests pass, the block will succeed without any exceptions.
+The last cell in the [Get Updates from CONNECT Notebook.ipynb](https://github.com/AVEVA/sample-connect-get_stream_updates_databricks_notebook/blob/main/Get%20Updates%20from%20CONNECT%20Notebook.ipynb) are for running tests so that you can test to make sure the whole notebook is working as expected. As it tests the methods defined earlier in the notebook, you need to run the previous cells of the notebook before trying to run the tests. If the tests pass, the block will succeed without any exceptions.
 
 ---
 
