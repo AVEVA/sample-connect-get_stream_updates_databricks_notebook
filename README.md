@@ -5,6 +5,8 @@ The sample code in this folder demonstrates how to get stream updates with CONNE
 
 Developed against Python 3.10.12
 
+[![Build Status](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_apis/build/status%2Fproduct-readiness%2FCONNECT%2FAVEVA.sample-connect-get_stream_updates_databricks_notebook?repoName=AVEVA%2Fsample-connect-get_stream_updates_databricks_notebook&branchName=main)](https://dev.azure.com/AVEVA-VSTS/Cloud%20Platform/_build/latest?definitionId=25046&repoName=AVEVA%2Fsample-connect-get_stream_updates_databricks_notebook&branchName=main)
+
 ## About the sample
 
 This sample demonstrates how to use the change broker in CONNECT data services to get stream updates. In general, when making data available in Databricks from CONNECT data services, you should use the [Virtual Tables feature](https://docs.aveva.com/bundle/connect-data-services/page/1469347.html). This is a no-code solution to getting stream and asset data into Databricks. However, using the change broker in addition to virtual tables can be useful if you need faster (less than 15 minute) updates on how a stream's data has changed. 
