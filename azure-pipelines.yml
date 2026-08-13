@@ -49,6 +49,5 @@ jobs:
             python -c "import sys; print(sys.executable)"
             python -m pip --version
             python -m pip install --upgrade pip
-            python -m pip install -r requirements.txt
             python -m pip freeze
           displayName: 'Install Python dependencies'
